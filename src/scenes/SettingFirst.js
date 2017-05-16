@@ -5,7 +5,7 @@ import { View, Text } from 'react-native'
 import { configs, constants, arrays } from '../commons'
 import { showSnackBar, showToast } from '../redux/actions/App'
 
-class Home extends Component {
+class SettingFirst extends Component {
     //oprion Header
     static navigationOptions = {
         
@@ -35,4 +35,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         showToast: (data) => dispatch(showToast(data))
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(SettingFirst)

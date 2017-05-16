@@ -1,4 +1,5 @@
 const colors = {
+  appBg: 'green',
   toastbg: 'white',
   toastText: 'black',
   snackBarbg: 'black',

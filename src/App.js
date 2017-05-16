@@ -1,4 +1,4 @@
-import React ,{Component}from 'react';
+import React, { Component } from 'react';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
@@ -11,7 +11,7 @@ const App = () => {
     return (
         <Provider store={store}>
             <Setup>
-                <AppNavigator/>
+                <AppNavigator />
             </Setup>
         </Provider>
     );

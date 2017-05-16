@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 
-import { Text, View, StyleSheet, AsyncStorage, Image, Keyboard, StatusBar } from 'react-native'
-import { scenes, configs } from './commons'
+import { StyleSheet, StatusBar, View } from 'react-native'
+import { configs, styles, colors } from './commons'
 import { SnackBar, Toast } from './components'
+
 class Setup extends Component {
     render() {
         return (
-            <View style={{ flex: 1 }}>
+            <View style={styles.appConst}>
                 {this.props.children}
                 <SnackBar />
                 <Toast />
-                <StatusBar
-                    barStyle="light-content" />
+                <StatusBar />
             </View>
         )
     }
