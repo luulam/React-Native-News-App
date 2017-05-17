@@ -12,7 +12,7 @@ class Setup extends Component {
                 {this.props.children}
                 <SnackBar />
                 <Toast />
-                <StatusBar />
+                <StatusBar barStyle="light-content" />
             </View>
         )
     }

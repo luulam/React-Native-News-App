@@ -4,8 +4,7 @@ import colors from './Colors'
 
 const styles = StyleSheet.create({
     appConst: {
-        flex: 1,
-        paddingTop: 24,
+        flex: 1
     },
 })
 

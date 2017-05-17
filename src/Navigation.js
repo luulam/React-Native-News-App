@@ -24,7 +24,7 @@ const AppNavigator = StackNavigator({
     initialRouteName: 'Splash',
     mode: Platform.OS === 'ios' ? 'modal' : 'card',
     headerMode: 'none',
-    cardStyle: { backgroundColor:'transparent' }
+    cardStyle: { backgroundColor:'transparent',shadowOpacity:0 }
   });
 
 export default AppNavigator
