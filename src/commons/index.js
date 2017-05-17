@@ -4,6 +4,7 @@ import strings from './Strings'
 import constants from './Constants'
 import colors from './Colors'
 import styles from './Styles'
+import anis from './Anis'
 import images from './Images'
 
 export {
@@ -13,5 +14,6 @@ export {
     constants,
     styles,
     colors,
+    anis,
     images
 }

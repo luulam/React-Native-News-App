@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Button } from 'react-native-elements';
-import { View, Text, ActivityIndicator } from 'react-native'
-import { configs, constants, arrays, styles } from '../commons'
+import { View, Text, Image } from 'react-native'
+import { configs, constants, arrays, anis, images } from '../commons'
 import { showSnackBar, showToast } from '../redux/actions/App'
-
+import { Loading } from '../components'
+import styles from './styles/Splash'
 class Splash extends Component {
     //oprion Header
     static navigationOptions = {
@@ -21,9 +22,10 @@ class Splash extends Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
-            <View style={styles.appConst}>
-                <Text>Splash</Text>
-                <ActivityIndicator />
+            <View style={styles.constant} source={images.background}>
+                <Text style={styles.logo}> NEWS </Text>
+                <Loading />
+                <Text style={styles.descrip}> Powered by LuuLam </Text>
             </View>
         )
     }
@@ -32,11 +34,13 @@ class Splash extends Component {
         
     }
 }
+
 const mapStateToProps = (state, ownProps) => {
     return {
         state: state
     }
 }
+
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         showSnackBar: (data) => dispatch(showSnackBar(data)),

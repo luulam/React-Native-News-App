@@ -1,4 +1,4 @@
-const colors = {
+export default colors = {
   primary: '#294f58',
   secondary: 'a3ffe1',
   appBg: 'green',
@@ -8,4 +8,4 @@ const colors = {
   snackBarText: 'white'
 }
 
-export default colors
+

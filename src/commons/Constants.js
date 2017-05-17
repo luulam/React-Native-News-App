@@ -8,8 +8,8 @@ export const URL_SOURCE = `${URL_BASE}${URL_VESSION}sources?`
 export const URL_ARTICLE = `${URL_BASE}${URL_VESSION}article?apiKey=${API_KEY}`
 
 //asynStorage
-export const ASYN_STO_LANGUAGE = 'ASYN_STO_LANGUAGE'
-export const ASYN_STO_CATEGORY = 'ASYN_STO_CATEGORY'
+export const STO_LANGUAGE = 'STO_LANGUAGE'
+export const STO_CATEGORY = 'STO_CATEGORY'
 
 export default {
     URL_BASE,
@@ -17,6 +17,6 @@ export default {
     URL_SOURCE,
     URL_ARTICLE,
 
-    ASYN_STO_LANGUAGE,
-    ASYN_STO_CATEGORY
+    STO_LANGUAGE,
+    STO_CATEGORY
 }

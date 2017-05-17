@@ -2,7 +2,7 @@ import { Dimensions, Platform } from 'react-native'
 
 const { width, height } = Dimensions.get('window')
 
-const configs = {
+export default configs = {
     screenWidth: width < height ? width : height,
     screenHeight: width < height ? height : width,
     navBarHeight: (Platform.OS === 'ios') ? 64 : 54,
@@ -38,5 +38,3 @@ const configs = {
         showSnackBar: 1000,
     }
 }
-
-export default configs
