@@ -5,21 +5,24 @@ import { View, Text } from 'react-native'
 import { configs, constants, arrays } from '../commons'
 import { showSnackBar, showToast } from '../redux/actions/App'
 
+
 class SettingFirst extends Component {
     //oprion Header
     static navigationOptions = {
-        
+
     };
 
-    static state = {
-        test: ''
+    state = {
+        
     }
+    
     render() {
         const { navigate } = this.props.navigation;
         return (
-            <View style={{ flex: 1, backgroundColor: 'green', justifyContent: 'center' }}>
-                <Button onPress={() => this.props.showToast('this is Toast')} title='show toast' />
-                <Button onPress={() => this.props.showSnackBar('this is SnackBar')} title="show snackBar" />
+            <View style={{ flex: 1 }}>
+                <View>
+                    
+                </View>
             </View>
         )
     }

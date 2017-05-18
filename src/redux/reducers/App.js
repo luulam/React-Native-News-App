@@ -1,12 +1,27 @@
-import { GET_APP, ADD_SNACKBAR, REMOVE_SNACKBAR, ADD_TOAST, REMOVE_TOAST } from '../actions/App'
+import {
+    SAVE_SETTING_START,
+    ADD_SNACKBAR,
+    REMOVE_SNACKBAR,
+    ADD_TOAST,
+    REMOVE_TOAST
+} from '../actions/App'
 
 const INITIAL = {
     snaskBars: [],
-    toasts: []
+    toasts: [],
+    setting: {}
 };
 
 export default (state = INITIAL, action) => {
     switch (action.type) {
+        case SAVE_SETTING_START:
+            let setting = state.setting
+            for (let key of Object.keys(action.data)) {
+                setting[key] = action.data[key]
+            }
+            return Object.assign({}, state, {
+                setting: setting
+            })
         case ADD_SNACKBAR:
             return Object.assign({}, state, {
                 snaskBars: state.snaskBars.concat({

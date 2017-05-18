@@ -2,14 +2,17 @@
 import SnackBar from './SnackBar'
 import Toast from './Toast'
 import Loading from './Loading'
+import Button from './Button'
 
 export {
     SnackBar,
     Toast,
-    Loading
+    Loading,
+    Button
 }
 export default {
     SnackBar,
     Toast,
-    Loading
+    Loading,
+    Button
 }

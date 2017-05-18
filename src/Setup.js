@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 
-import { StyleSheet, StatusBar, View } from 'react-native'
+import { StyleSheet, StatusBar, View, Image } from 'react-native'
 import { configs, styles, colors } from './commons'
 import { SnackBar, Toast } from './components'
 

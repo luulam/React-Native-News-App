@@ -1,15 +1,19 @@
-import { configs, colors } from '../../commons'
+import { configs, colors, styles } from '../../commons'
 
-export default styles = {
+export default style = {
+    ...styles,
     constant: {
         justifyContent: 'space-between',
         alignItems: 'center',
-        flex: 1,
-        backgroundColor: colors.primary
+        width: configs.screenWidth,
+        height: configs.screenHeight
+    },
+    constLanguage: {
+        flexDirection: 'row',
+        justifyContent: 'space-around'
     },
     logo: {
-        textDecorationLine: 'underline',
-        textShadowColor: 'black',
+        textShadowColor: 'gray',
         textShadowOffset: { width: 2, height: 2 },
         textShadowRadius: 2,
         marginTop: configs.screenHeight / 3,
@@ -22,5 +26,13 @@ export default styles = {
         marginVertical: 24,
         color: 'white',
         fontStyle: 'italic'
+    },
+    label: {
+        margin: 12,
+        fontSize: configs.font.regular,
+        textAlign: 'center'
+    },
+    margin: {
+        margin: 12
     }
 }

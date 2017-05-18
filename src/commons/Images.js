@@ -1,3 +1,3 @@
 export default images = {
-    background: require('../assets/images/bg.jpg')
+    background: require('../assets/images/bg.jpg'),
 }

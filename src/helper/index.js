@@ -1,5 +1,5 @@
 import { Platform, AsyncStorage } from 'react-native';
-
+import { strings } from '../commons'
 export function getPlatformValue(iosValue, androidValue) {
     if (Platform.OS === 'ios') return iosValue;
     return androidValue
@@ -37,28 +37,30 @@ export function checkObjectInArray(object, array) {
 
 /**
  * - get multi value to asyncStorage
- * param : [object]
+ * @param {string} args
  * return promise
  */
-export function asynStorageGet (...args) {
-    
-    if (!args) return undefined
+export function storageGet(...args) {
 
-    if (args.length === 1 ){
-        return new Promise((resolve,reject)=>{
+    if (!args) return new Promise((resolve, reject) => {
+        reject('no param')
+    })
+
+    if (args.length === 1) {
+        return new Promise((resolve, reject) => {
             AsyncStorage.getItem(args[0], (err, result) => {
                 if (err !== null) reject(err)
-                resolve (result)
+                resolve(result)
             });
         })
     }
 
     let listPromise = []
-    for (let arg of args){
-        listPromise.push(new Promise((resolve,reject)=>{
+    for (let arg of args) {
+        listPromise.push(new Promise((resolve, reject) => {
             AsyncStorage.getItem(arg, (err, result) => {
                 if (err !== null) reject(err)
-                resolve (result)
+                resolve(result)
             });
         }))
     }
@@ -68,26 +70,28 @@ export function asynStorageGet (...args) {
 
 /**
  * -- save multi to asyncStorage
- * param : [object]
+ * @param {key,value}[object]...
  * return promise
  */
-export function asynStorageSave (...args) {
+export function storageSave(...args) {
 
-    if (!args) return undefined
-    
-    if (args.length === 1 ){
-        return new Promise((resolve,reject)=>{
-            AsyncStorage.setItem(Object.keys(args[0]).toString(),args[0][Object.keys(args[0])], (err) => {
+    if (!args) return new Promise((resolve, reject) => {
+        reject('no param')
+    })
+
+    if (args.length === 1) {
+        return new Promise((resolve, reject) => {
+            AsyncStorage.setItem(Object.keys(args[0]).toString(), args[0][Object.keys(args[0])], (err) => {
                 if (err !== null) reject(err)
                 resolve()
             });
         })
     }
-    
+
     let listPromise = []
-    for (let arg of args){
-        listPromise.push(new Promise((resolve,reject)=>{
-            AsyncStorage.setItem(Object.keys(arg).toString(),arg[Object.keys(arg)], (err) => {
+    for (let arg of args) {
+        listPromise.push(new Promise((resolve, reject) => {
+            AsyncStorage.setItem(Object.keys(arg).toString(), arg[Object.keys(arg)], (err) => {
                 if (err !== null) reject(err)
                 resolve()
             });
@@ -96,5 +100,9 @@ export function asynStorageSave (...args) {
     return new Promise.all(listPromise)
 }
 
+export function string(key, language) {
+    if (!key || !language) return undefined
+    return strings[language][key]
+}
 
 export default { getPlatformValue, isNull }

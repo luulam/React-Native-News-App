@@ -1,4 +1,4 @@
-export const arr_value_srouce_category = [
+export const srouce_category = [
      'business', 
      'entertainment', 
      'gaming', 
@@ -9,18 +9,18 @@ export const arr_value_srouce_category = [
      'sport', 
      'technology'
 ]
-export const arr_value_source_language = [
+export const source_language = [
     'en',
-    'fr'
+    'de'
 ]
-export const arr_value_articles = [
+export const articles = [
     'top',
     'latest',
     'popular'
 ]
 
 export default {
-    arr_value_srouce_category,
-    arr_value_source_language,
-    arr_value_articles
+    srouce_category,
+    source_language,
+    articles
 }

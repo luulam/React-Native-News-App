@@ -8,7 +8,7 @@ import { showSnackBar, showToast } from '../redux/actions/App'
 class Home extends Component {
     //oprion Header
     static navigationOptions = {
-        
+
     };
 
     static state = {
@@ -17,7 +17,7 @@ class Home extends Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
-            <View style={{ flex: 1, backgroundColor: 'green', justifyContent: 'center' }}>
+            <View style={{ flex: 1, justifyContent: 'center' }}>
                 <Button onPress={() => this.props.showToast('this is Toast')} title='show toast' />
                 <Button onPress={() => this.props.showSnackBar('this is SnackBar')} title="show snackBar" />
             </View>
