@@ -8,12 +8,12 @@ export const ADD_TOAST = 'ADD_TOAST'
 export const REMOVE_TOAST = 'REMOVE_TOAST'
 export const SAVE_SETTING_START = 'SAVE_SETTING_START'
 export const GET_STRING = 'GET_STRING'
+
 /**
  * action load all data in asyncstorage, fetch ... to store app
  * @param {key,value} arg 
  */
 export function saveSetting(arg) {
-    console.log('sevesting', arg)
     return {
         type: SAVE_SETTING_START,
         data: arg

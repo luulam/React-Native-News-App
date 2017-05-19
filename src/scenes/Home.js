@@ -18,8 +18,8 @@ class Home extends Component {
         const { navigate } = this.props.navigation;
         return (
             <View style={{ flex: 1, justifyContent: 'center' }}>
-                <Button onPress={() => this.props.showToast('this is Toast')} title='show toast' />
-                <Button onPress={() => this.props.showSnackBar('this is SnackBar')} title="show snackBar" />
+                
+                
             </View>
         )
     }

@@ -16,10 +16,10 @@ class Splash extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            fetchLoading: true,
-            fetchError: false,
-            fetchResponse: undefined,
             selectLanguage: 0,
+            isFetchError: false,
+            isFirstSetup: false,
+            fetchResponse: undefined
         }
     }
 
@@ -37,30 +37,33 @@ class Splash extends Component {
         )
     }
 
-    renderContent() {
-        const { fetchFalse, fetchError, fetchLoading } = this.state
-        if (fetchLoading) {
-            return (
-                <Loading />
-            )
-        }
-        if (fetchError) {
+    //render view select language at first setup App
+    renderFirtsSetting() {
+        const { isFetchError, isFirstSetup } = this.state
+
+        if (isFetchError) {
             return (
                 <View>
                     <Button title='Reload' onPress={this.onPressReload} />
                 </View>
             )
         }
-        return (
-            <View>
-                <Text style={[styles.appLabel, styles.label]} >{string('select_language', arrays.source_language[this.state.selectLanguage])}</Text>
-                <View style={styles.constLanguage}>
-                    {arrays.source_language.map(this.renderOneLanguage)}
-                </View>
-                <Button title={string('confirm', arrays.source_language[this.state.selectLanguage])} style={styles.margin}
-                    onPress={() => this.onPressConfirm()} />
-            </View>
 
+        if (isFirstSetup) {
+            return (
+                <View>
+                    <Text style={[styles.appLabel, styles.label]} >{string('select_language', arrays.source_language[this.state.selectLanguage])}</Text>
+                    <View style={styles.constLanguage}>
+                        {arrays.source_language.map(this.renderOneLanguage)}
+                    </View>
+                    <Button title={string('confirm', arrays.source_language[this.state.selectLanguage])} style={styles.margin}
+                        onPress={() => this.onPressConfirm()} />
+                </View>
+            )
+        }
+
+        return (
+            <Loading />
         )
     }
 
@@ -68,29 +71,18 @@ class Splash extends Component {
         return (
             <View style={styles.constant}>
                 <Text style={styles.logo}> NEWS </Text>
-                {this.renderContent()}
+                {this.renderFirtsSetting()}
                 <Text style={styles.descrip}> Powered by LuuLam </Text>
             </View>
         )
     }
 
     componentDidMount() {
-        let { saveSetting } = this.props
-        storageGet(constants.STO_LANGUAGE)
-            .then(resuft => {
-                if (resuft) {
-                    saveSetting({ language: resuft })
-                    this.resetScreen('Home')
-                } else {
-                    this.fetchGetResource()
-                }
-            })
+        this.fetchGetResource()
     }
 
     onPressReload = () => {
-        this.setState({
-            fetchLoading: true, fetchError: false
-        })
+        this.setState({ isFetchError: false })
         this.fetchGetResource()
     }
 
@@ -107,16 +99,33 @@ class Splash extends Component {
     }
 
     fetchGetResource = () => {
+        let { saveSetting } = this.props
         getSources()
             .then(response => {
-                this.setState({ fetchLoading: false, fetchResponse: response })
+                saveSetting({ source: response })
+                this.setState({ fetchResponse: response })
+                this.checkLoginFirst()
             })
             .catch(err => {
-                this.setState({ fetchLoading: false, fetchError: true })
+                this.setState({ isFetchError: true })
             })
     }
 
-    resetScreen = (name) => {
+    checkLoginFirst = () => {
+        let { saveSetting } = this.props
+        storageGet(constants.STO_LANGUAGE)
+            .then(response => {
+                saveSetting({ language: response })
+                if (!response) {
+                    this.setState({ isFirstSetup: true })
+                } else {
+                    this.resetScreen('Home')
+                }
+
+            })
+    }
+
+    resetScreen = (name, params) => {
         this.props.navigation.dispatch(NavigationActions.reset({
             index: 0,
             actions: [
