@@ -1,5 +1,7 @@
 import { Platform, AsyncStorage } from 'react-native';
 import { strings } from '../commons'
+import asyncSto from './AsyncStorage'
+import fetchApp from './Fetch'
 export function getPlatformValue(iosValue, androidValue) {
     if (Platform.OS === 'ios') return iosValue;
     return androidValue
@@ -32,77 +34,11 @@ export function checkObjectInArray(object, array) {
     return true
 }
 
-
-// -- asynStorage --
-
-/**
- * - get multi value to asyncStorage
- * @param {string} args
- * return promise
- */
-export function storageGet(...args) {
-
-    if (!args) return new Promise((resolve, reject) => {
-        reject('no param')
-    })
-
-    if (args.length === 1) {
-        return new Promise((resolve, reject) => {
-            AsyncStorage.getItem(args[0], (err, result) => {
-                if (err !== null) reject(err)
-                resolve(result)
-            });
-        })
-    }
-
-    let listPromise = []
-    for (let arg of args) {
-        listPromise.push(new Promise((resolve, reject) => {
-            AsyncStorage.getItem(arg, (err, result) => {
-                if (err !== null) reject(err)
-                resolve(result)
-            });
-        }))
-    }
-    return new Promise.all(listPromise)
-}
-
-
-/**
- * -- save multi to asyncStorage
- * @param {key,value}[object]...
- * return promise
- */
-export function storageSave(...args) {
-
-    if (!args) return new Promise((resolve, reject) => {
-        reject('no param')
-    })
-
-    if (args.length === 1) {
-        return new Promise((resolve, reject) => {
-            AsyncStorage.setItem(Object.keys(args[0]).toString(), args[0][Object.keys(args[0])], (err) => {
-                if (err !== null) reject(err)
-                resolve()
-            });
-        })
-    }
-
-    let listPromise = []
-    for (let arg of args) {
-        listPromise.push(new Promise((resolve, reject) => {
-            AsyncStorage.setItem(Object.keys(arg).toString(), arg[Object.keys(arg)], (err) => {
-                if (err !== null) reject(err)
-                resolve()
-            });
-        }))
-    }
-    return new Promise.all(listPromise)
-}
-
 export function string(key, language) {
     if (!key || !language) return undefined
     return strings[language][key]
 }
-
-export default { getPlatformValue, isNull }
+export {
+    asyncSto,
+    fetchApp
+}

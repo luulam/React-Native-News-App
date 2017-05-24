@@ -4,8 +4,10 @@ import { constants } from '../commons'
 export const getSources = function (arg) {
     return new Promise((resolve, reject) => {
         fetch(`${constants.URL_SOURCE}`)
+            .then((response) => response.json())
             .then((response) => {
-                resolve(response)
+                if (response['status'] !== 'ok') return reject('request false')
+                resolve(response['sources'])
             })
             .catch((error) => {
                 console.log('getSources', error)
@@ -17,6 +19,7 @@ export const getSources = function (arg) {
 export const getArticles = function (arg) {
     return new Promise((resolve, reject) => {
         fetch(`${constants.URL_SOURCE}${arg.category ? 'source=' + arg.category : ''}${arg.language ? '&sortBy=' + arg.language : ''}`)
+            .then((response) => response.json())
             .then((response) => {
                 resolve(response)
             })

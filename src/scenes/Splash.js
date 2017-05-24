@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { configs, constants, arrays, anis, images, colors } from '../commons'
 import { showSnackBar, showToast, saveSetting } from '../redux/actions/App'
 import { Loading, Button } from '../components'
-import { storageGet, storageSave, string } from '../helper'
+import { asyncSto, string } from '../helper'
 import { getSources } from '../helper/Fetch'
 import styles from './styles/Splash'
 
@@ -87,7 +87,7 @@ class Splash extends Component {
     }
 
     onPressConfirm = () => {
-        storageSave({ [constants.STO_LANGUAGE]: arrays.source_language[this.state.selectLanguage] })
+        asyncSto.set({ [constants.STO_LANGUAGE]: arrays.source_language[this.state.selectLanguage] })
             .then(response => {
                 saveSetting({ language: arrays.source_language[this.state.selectLanguage] })
                 this.resetScreen('Home')
@@ -107,13 +107,14 @@ class Splash extends Component {
                 this.checkLoginFirst()
             })
             .catch(err => {
+                console.log('error', err)
                 this.setState({ isFetchError: true })
             })
     }
 
     checkLoginFirst = () => {
         let { saveSetting } = this.props
-        storageGet(constants.STO_LANGUAGE)
+        asyncSto.get(constants.STO_LANGUAGE)
             .then(response => {
                 saveSetting({ language: response })
                 if (!response) {

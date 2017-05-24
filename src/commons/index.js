@@ -6,6 +6,7 @@ import colors from './Colors'
 import styles from './Styles'
 import anis from './Anis'
 import images from './Images'
+import icons from './Icon'
 
 export {
     configs,
@@ -15,5 +16,6 @@ export {
     styles,
     colors,
     anis,
-    images
+    images,
+    icons
 }
