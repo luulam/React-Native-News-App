@@ -8,8 +8,19 @@ export default styles = StyleSheet.create({
         paddingTop: configs.statusBarHeight,
         backgroundColor: colors.appBg
     },
+    appHor: {
+        flexDirection: 'row'
+    },
+    appVer: {
+        flexDirection: 'column'
+    },
     appLabel: {
         color: 'white',
         fontSize: configs.font.medium
+    },
+    appTitle: {
+        fontWeight: 'bold',
+        color: 'white',
+        fontSize: configs.font.regular
     }
 })

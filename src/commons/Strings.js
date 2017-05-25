@@ -6,7 +6,10 @@ export default string = {
         confirm: 'confirm',
         next: 'next',
         done: 'done',
-        exit: 'exit'
+        exit: 'exit',
+        listNews: 'list of newspapers',
+        category: 'category',
+        search: 'search'
     },
     de: {
         name: 'German',
@@ -15,6 +18,9 @@ export default string = {
         confirm: 'bestätigen',
         next: 'next',
         done: 'done',
-        exit: 'exit'
+        exit: 'exit',
+        listNews: 'list of newspapers',
+        category: 'category',
+        search: 'search'
     }
 }

@@ -8,7 +8,8 @@ export default colors = {
   toastText: 'black',
   snackBarbg: 'black',
   snackBarText: 'white',
-  icon: 'white'
+  icon: 'white',
+  trans: 'transparent'
 }
 
 

@@ -1,33 +1,72 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { View, Text } from 'react-native'
-import { configs, constants, arrays, icons } from '../commons'
+import { View, Text, ScrollView, FlatList, Image, TouchableOpacity, TextInput } from 'react-native'
+import { TabNavigator } from 'react-navigation';
+import { configs, constants, arrays, icons, strings, colors } from '../commons'
 import { showSnackBar, showToast } from '../redux/actions/App'
-import { Icon } from '../components'
+import { Icon, Header } from '../components'
+import { string, isNull, getUrlImage } from '../helper'
+import styles from './styles/Home'
+
 class Home extends Component {
-    //oprion Header
-    static navigationOptions = {
-
-    };
-
-    static state = {
-        test: ''
+    state = {
+        search: ''
     }
     render() {
-        const { navigate } = this.props.navigation;
+        const { language } = this.props;
         return (
             <View style={{ flex: 1 }}>
-                <View style={{ height: configs.toolBarHeight, justifyContent: 'space-around', backgroundColor: 'red' }}>
-
+                <Header>
+                    <Icon name='menu' />
+                    <Text style={styles.appTitle}>{string('listNews', language)}</Text>
+                    <Icon name='more-vert' />
+                </Header>
+                <View style={styles.bgSearch}>
+                    <Icon name='search' color={colors.appBg} />
+                    <TextInput
+                        placeholder={string('search', language)}
+                        placeholderTextColor='gray'
+                        style={styles.inputSearch}
+                        onChangeText={(v) => this.setState({ search: v })}
+                        value={this.state.search}
+                    />
                 </View>
-            </View>
+                <FlatList data={this._getSource(this.state.search)}
+                    numColumns={4}
+                    keyExtractor={(item, index) => index}
+                    renderItem={({ item, index }) => {
+                        return (
+                            <TouchableOpacity
+                                key={index}
+                                style={styles.itemList}
+                                onPress={() => { this._onPressItem(index) }}>
+                                <Image source={{ uri: getUrlImage(item['url']) }}
+                                    style={{ width: configs.screenWidth / 6 - 8, height: configs.screenWidth / 6 - 8 }} />
+                                <Text style={{ padding: 4 }} >{item['name']}</Text>
+                            </TouchableOpacity>
+                        )
+
+                    }} />
+            </View >
         )
+    }
+    _getSource = (key) => {
+        const { source } = this.props;
+        return source.filter(value => {
+            if (isNull(key)) return true
+            return (value['name'].toLowerCase().indexOf(key.toLowerCase()) === -1) ? false : true
+        })
+    }
+    _onPressItem = index => {
+
     }
 }
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        state: state
+        state: state,
+        source: state.app.setting.source,
+        language: state.app.setting.language
     }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {

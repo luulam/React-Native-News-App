@@ -38,6 +38,11 @@ export function string(key, language) {
     if (!key || !language) return undefined
     return strings[language][key]
 }
+
+export function getUrlImage(linkWeb){
+    return `https://icons.better-idea.org/icon?size=70..120..200&url=${linkWeb}`
+}
+
 export {
     asyncSto,
     fetchApp

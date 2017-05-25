@@ -11,6 +11,9 @@ export default configs = {
     paddingHorizontal: 12,
     paddingVertical: 8,
     toolBarHeight: 54,
+    header: {
+        height: 56,
+    },
     icons: {
         tiny: 15,
         small: 20,
