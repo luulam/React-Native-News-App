@@ -11,6 +11,9 @@ export default configs = {
     paddingHorizontal: 12,
     paddingVertical: 8,
     toolBarHeight: 54,
+    borderWidth: 1,
+    borderRadius: 4,
+    opacityPress: .2,
     header: {
         height: 56,
     },
@@ -40,7 +43,6 @@ export default configs = {
         small: 12,
         tiny: 8.5
     },
-
     time: {
         showToast: 1000,
         showSnackBar: 1000,

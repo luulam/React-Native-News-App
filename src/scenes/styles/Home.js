@@ -16,6 +16,7 @@ export default style = {
         flex: 1
     },
     bgSearch: {
+        marginBottom: 4,
         marginHorizontal: 4,
         alignItems: 'center',
         borderRadius: 4,

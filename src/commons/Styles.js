@@ -14,6 +14,16 @@ export default styles = StyleSheet.create({
     appVer: {
         flexDirection: 'column'
     },
+    appCenter: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    appIcon: {
+        width: 30,
+        height: 30,
+        marginRight: 4
+    },
     appLabel: {
         color: 'white',
         fontSize: configs.font.medium

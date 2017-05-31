@@ -2,6 +2,8 @@ import { Platform, AsyncStorage } from 'react-native';
 import { strings } from '../commons'
 import asyncSto from './AsyncStorage'
 import fetchApp from './Fetch'
+import navi from './Navigation'
+
 export function getPlatformValue(iosValue, androidValue) {
     if (Platform.OS === 'ios') return iosValue;
     return androidValue
@@ -45,5 +47,6 @@ export function getUrlImage(linkWeb){
 
 export {
     asyncSto,
-    fetchApp
+    fetchApp,
+    navi
 }

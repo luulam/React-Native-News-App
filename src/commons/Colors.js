@@ -9,7 +9,12 @@ export default colors = {
   snackBarbg: 'black',
   snackBarText: 'white',
   icon: 'white',
-  trans: 'transparent'
+  trans: 'transparent',
+  bgSelect: 'white',
+  bgNotSelect: 'transparent',
+  textSelect: 'black',
+  textNotSelect: 'white',
+  border: 'white'
 }
 
 

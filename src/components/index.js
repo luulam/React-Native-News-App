@@ -4,6 +4,7 @@ import Loading from './Loading'
 import Button from './Button'
 import Icon from './Icon'
 import Header from './Header'
+import Tab from './Tab'
 
 export {
     SnackBar,
@@ -11,13 +12,16 @@ export {
     Loading,
     Button,
     Icon,
-    Header
+    Header,
+    Tab
 }
+
 export default {
     SnackBar,
     Toast,
     Loading,
     Button,
     Icon,
-    Header
+    Header,
+    Tab
 }

@@ -6,8 +6,7 @@ import { connect } from 'react-redux';
 import { configs, constants, arrays, anis, images, colors } from '../commons'
 import { showSnackBar, showToast, saveSetting } from '../redux/actions/App'
 import { Loading, Button } from '../components'
-import { asyncSto, string } from '../helper'
-import { getSources } from '../helper/Fetch'
+import { asyncSto, string, navi, fetchApp } from '../helper'
 import styles from './styles/Splash'
 
 
@@ -90,7 +89,7 @@ class Splash extends Component {
         asyncSto.set({ [constants.STO_LANGUAGE]: arrays.source_language[this.state.selectLanguage] })
             .then(response => {
                 saveSetting({ language: arrays.source_language[this.state.selectLanguage] })
-                this.resetScreen('Home')
+                this.props.navigation.dispatch(navi.reset({ name: 'Home' }))
             })
             .catch(error => {
                 this.props.showToast(error)
@@ -100,14 +99,13 @@ class Splash extends Component {
 
     fetchGetResource = () => {
         let { saveSetting } = this.props
-        getSources()
+        fetchApp.getSources()
             .then(response => {
                 saveSetting({ source: response })
                 this.setState({ fetchResponse: response })
                 this.checkLoginFirst()
             })
             .catch(err => {
-                console.log('error', err)
                 this.setState({ isFetchError: true })
             })
     }
@@ -120,19 +118,9 @@ class Splash extends Component {
                 if (!response) {
                     this.setState({ isFirstSetup: true })
                 } else {
-                    this.resetScreen('Home')
+                    this.props.navigation.dispatch(navi.reset({ name: 'Home' }))
                 }
-
             })
-    }
-
-    resetScreen = (name, params) => {
-        this.props.navigation.dispatch(NavigationActions.reset({
-            index: 0,
-            actions: [
-                NavigationActions.navigate({ routeName: name })
-            ]
-        }))
     }
 }
 

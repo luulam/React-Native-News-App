@@ -5,7 +5,7 @@ import { TabNavigator } from 'react-navigation';
 import { configs, constants, arrays, icons, strings, colors } from '../commons'
 import { showSnackBar, showToast } from '../redux/actions/App'
 import { Icon, Header } from '../components'
-import { string, isNull, getUrlImage } from '../helper'
+import { string, isNull, getUrlImage, navi } from '../helper'
 import styles from './styles/Home'
 
 class Home extends Component {
@@ -45,12 +45,11 @@ class Home extends Component {
                                 <Text style={{ padding: 4 }} >{item['name']}</Text>
                             </TouchableOpacity>
                         )
-
                     }} />
             </View >
         )
     }
-    _getSource = (key) => {
+    _getSource = key => {
         const { source } = this.props;
         return source.filter(value => {
             if (isNull(key)) return true
@@ -58,7 +57,9 @@ class Home extends Component {
         })
     }
     _onPressItem = index => {
-
+        const { source } = this.props;
+        // console.log('object', source[index]);
+        this.props.navigation.dispatch(navi.to({ name: 'Articles', params: { infoArticles: source[index] } }))
     }
 }
 

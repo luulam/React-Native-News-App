@@ -10,22 +10,29 @@ export const getSources = function (arg) {
                 resolve(response['sources'])
             })
             .catch((error) => {
-                console.log('getSources', error)
+                console.info('getSources', error)
                 reject(error)
             })
     })
 }
 
 export const getArticles = function (arg) {
+    console.log('asdasd',`${constants.URL_ARTICLE}${arg.source ? '&source=' + arg.source : ''}${arg.language ? '&sortBy=' + arg.language : ''}`)
     return new Promise((resolve, reject) => {
-        fetch(`${constants.URL_SOURCE}${arg.category ? 'source=' + arg.category : ''}${arg.language ? '&sortBy=' + arg.language : ''}`)
+        fetch(`${constants.URL_ARTICLE}${arg.source ? '&source=' + arg.source : ''}${arg.sortBy ? '&sortBy=' + arg.sortBy : ''}`)
             .then((response) => response.json())
             .then((response) => {
-                resolve(response)
+                if (response['status'] !== 'ok') return reject('request false')
+                resolve(response['articles'])
             })
             .catch((error) => {
-                console.log('getArticles', error)
+                console.info('getArticles', error)
                 reject(error)
             })
     })
+}
+
+export default {
+    getSources,
+    getArticles
 }
