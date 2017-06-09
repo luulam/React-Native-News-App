@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react'
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
+import { Text } from './'
 import { configs } from '../commons'
 import styles from './styles/Button'
 

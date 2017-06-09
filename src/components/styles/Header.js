@@ -4,7 +4,7 @@ export default {
     default: {
         paddingHorizontal: 12,
         height: configs.header.height,
-        backgroundColor: colors.trans,
+        backgroundColor: 'transparent',
         alignItems: 'center',
         justifyContent: 'space-between',
         flexDirection: 'row',

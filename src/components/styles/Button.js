@@ -2,8 +2,7 @@ import { configs, colors } from '../../commons'
 
 export default styles = {
     constant: {
-        backgroundColor: colors.buttonBg,
-        borderRadius: 100,
+        backgroundColor: colors.accent,
         flexDirection: 'row',
         alignItems: 'center',
         paddingHorizontal: configs.paddingHorizontal,
@@ -14,9 +13,9 @@ export default styles = {
         backgroundColor: 'gray'
     },
     text: {
-        fontSize: configs.font.regular,
-        fontWeight: 'bold',
+        fontSize: configs.font.medium,
         color: 'white',
+        fontWeight: 'bold',
         textAlign: 'center'
     }
 }

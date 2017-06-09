@@ -2,11 +2,11 @@ import { StyleSheet } from 'react-native'
 import configs from './Configs'
 import colors from './Colors'
 
-export default styles = StyleSheet.create({
+export default styles = {
     appConst: {
         flex: 1,
         paddingTop: configs.statusBarHeight,
-        backgroundColor: colors.appBg
+        backgroundColor: colors.background
     },
     appHor: {
         flexDirection: 'row'
@@ -30,7 +30,6 @@ export default styles = StyleSheet.create({
     },
     appTitle: {
         fontWeight: 'bold',
-        color: 'white',
-        fontSize: configs.font.regular
+        fontSize: configs.font.big
     }
-})
+}

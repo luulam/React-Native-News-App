@@ -5,6 +5,7 @@ import Button from './Button'
 import Icon from './Icon'
 import Header from './Header'
 import Tab from './Tab'
+import Text from './Text'
 
 export {
     SnackBar,
@@ -13,7 +14,8 @@ export {
     Button,
     Icon,
     Header,
-    Tab
+    Tab,
+    Text
 }
 
 export default {
@@ -23,5 +25,6 @@ export default {
     Button,
     Icon,
     Header,
-    Tab
+    Tab,
+    Text
 }

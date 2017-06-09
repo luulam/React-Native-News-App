@@ -12,7 +12,7 @@ class Setup extends Component {
                 {this.props.children}
                 <SnackBar />
                 <Toast />
-                <StatusBar barStyle="light-content"
+                <StatusBar barStyle="dark-content"
                     translucent={true}
                     backgroundColor='transparent' />
             </View>

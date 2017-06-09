@@ -17,9 +17,9 @@ class Home extends Component {
         return (
             <View style={{ flex: 1 }}>
                 <Header>
-                    <Icon name='menu' />
+                    {/*<Icon name='menu' />*/}
                     <Text style={styles.appTitle}>{string('listNews', language)}</Text>
-                    <Icon name='more-vert' />
+                    {/*<Icon name='more-vert' />*/}
                 </Header>
                 <View style={styles.bgSearch}>
                     <Icon name='search' color={colors.appBg} />

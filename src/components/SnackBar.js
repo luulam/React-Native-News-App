@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux';
-import { View , Text } from 'react-native';
+import { View } from 'react-native';
+import { Text } from '../components'
 import { configs } from '../commons'
 import styles from './styles/SnackBar'
 

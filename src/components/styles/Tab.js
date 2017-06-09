@@ -12,8 +12,8 @@ export default {
         paddingVertical: configs.paddingVertical,
         borderLeftWidth: configs.borderWidth,
         borderRightWidth: configs.borderWidth,
-        borderColor: colors.border,
-        backgroundColor: colors.bgSelect,
+        borderColor: 'white',
+        backgroundColor: 'white',
     },
     notSelect: {
         alignItems: 'center',
@@ -21,16 +21,16 @@ export default {
         paddingVertical: configs.paddingVertical,
         borderLeftWidth: configs.borderWidth,
         borderRightWidth: configs.borderWidth,
-        borderColor: colors.border,
-        backgroundColor: colors.bgNotSelect,
+        borderColor: 'white',
+        backgroundColor: 'white',
     },
     labelSelect: {
         // ...styles.appTitle,
-        color: colors.textSelect,
+        color: 'white',
     },
     labelNotSelect: {
         // ...styles.appTitle,
-        color: colors.textNotSelect,
+        color: 'white',
     }
 }
 

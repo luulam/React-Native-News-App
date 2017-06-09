@@ -18,13 +18,12 @@ export default style = {
         textShadowRadius: 2,
         marginTop: configs.screenHeight / 3,
         textAlign: 'center',
-        fontSize: configs.font.h1,
-        color: 'white',
+        fontSize: 32,
+        color: 'black',
         fontWeight: 'bold',
     },
     descrip: {
         marginVertical: 24,
-        color: 'white',
         fontStyle: 'italic'
     },
     label: {
