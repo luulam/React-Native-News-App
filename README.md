@@ -2,7 +2,7 @@
 [**Support me with a Follow github**](https://github.com/luulam)
 [**Support me with a Follow facebook**](https://www.facebook.com/luu.bang.77)
 
-# HackerNews-React-Native  
+# News-React-Native  
 
 [NewsApi.org](https://newsapi.org/) reader for iOS and Android, made with [React-Native](https://github.com/facebook/react-native).
 
