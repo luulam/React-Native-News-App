@@ -1,6 +1,7 @@
 # news
-[**Support me with a Follow github**](https://github.com/luulam)
-[**Support me with a Follow facebook**](https://www.facebook.com/luu.bang.77)
+Support me with a Follow 
+[**github**](https://github.com/luulam)
+[**facebook**](https://www.facebook.com/luu.bang.77)
 
 # News-React-Native  
 
