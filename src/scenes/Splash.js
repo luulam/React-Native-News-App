@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { View, Text, Image } from 'react-native'
+import { View, Image } from 'react-native'
 import { NavigationActions } from 'react-navigation'
 import { connect } from 'react-redux';
 
 import { configs, constants, arrays, anis, images, colors } from '../commons'
 import { showSnackBar, showToast, saveSetting } from '../redux/actions/App'
-import { Loading, Button } from '../components'
+import { Loading, Button, Text } from '../components'
 import { asyncSto, string, navi, fetchApp } from '../helper'
 import styles from './styles/Splash'
 
@@ -29,7 +29,7 @@ class Splash extends Component {
                     title={string('name', v)}
                     style={[
                         styles.margin,
-                        { backgroundColor: this.state.selectLanguage !== i ? 'gray' : colors.buttonBg }
+                        { backgroundColor: this.state.selectLanguage !== i ? 'gray' : colors.accent }
                     ]}
                     onPress={() => this.setState({ selectLanguage: i })} />
             </View>
@@ -51,7 +51,7 @@ class Splash extends Component {
         if (isFirstSetup) {
             return (
                 <View>
-                    <Text style={[styles.appLabel, styles.label]} >{string('select_language', arrays.source_language[this.state.selectLanguage])}</Text>
+                    <Text style={[styles.label]} >{string('select_language', arrays.source_language[this.state.selectLanguage])}</Text>
                     <View style={styles.constLanguage}>
                         {arrays.source_language.map(this.renderOneLanguage)}
                     </View>
@@ -114,13 +114,15 @@ class Splash extends Component {
         let { saveSetting } = this.props
         asyncSto.get(constants.STO_LANGUAGE)
             .then(response => {
-                saveSetting({ language: response })
-                if (!response) {
+                console.log(response)
+                console.log(response === null)
+                if (response[0] === null) {
                     this.setState({ isFirstSetup: true })
                 } else {
+                    saveSetting({ language: response })
                     this.props.navigation.dispatch(navi.reset({ name: 'Home' }))
                 }
-            })
+            }).catch((err) => console.log('hiih', err))
     }
 }
 

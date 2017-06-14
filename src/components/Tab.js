@@ -19,7 +19,9 @@ class Tab extends Component {
                 key={index}
                 title={value}
                 style={[
-                    { backgroundColor: select === value ? colors.buttonBg : 'transparent' }
+                    {
+                        backgroundColor: select === value ? colors.accent : 'transparent',
+                    }
                 ]}
                 onPress={() => onPress(value)} />
         )

@@ -8,7 +8,6 @@ class Header extends Component {
     render() {
         return (
             <View style={styles.default}>
-                {this.props.children && this.props.children.length === 1 ? <Icon hide /> : null}
                 {this.props.children}
                 {this.props.children && this.props.children.length % 2 === 0 ? <Icon hide /> : null}
             </View>

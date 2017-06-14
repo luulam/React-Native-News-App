@@ -28,7 +28,7 @@ export default style = {
     },
     label: {
         margin: 12,
-        fontSize: configs.font.regular,
+        fontSize: configs.font.big,
         textAlign: 'center'
     },
     margin: {

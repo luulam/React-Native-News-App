@@ -3,9 +3,8 @@ import { connect } from 'react-redux';
 import { View, Text, ScrollView, FlatList, Image, TouchableOpacity, TextInput } from 'react-native'
 import { TabNavigator } from 'react-navigation';
 import { configs, constants, arrays, icons, strings, colors } from '../commons'
-import { showSnackBar, showToast } from '../redux/actions/App'
 import { Icon, Header, Tab, Loading, Button } from '../components'
-import { string, isNull, getUrlImage, fetchApp, getObj } from '../helper'
+import { string, isNull, getUrlImage, fetchApp, getObj, navi } from '../helper'
 import styles from './styles/Articles'
 import moment from 'moment'
 class Articles extends Component {
@@ -25,7 +24,6 @@ class Articles extends Component {
 
     renderItemArticles = (item, index) => {
         let { typeShow } = this.state
-        console.log('index', typeShow)
         if (typeShow) {
             return (
                 <TouchableOpacity
@@ -37,7 +35,7 @@ class Articles extends Component {
                         resizeMode='cover'
                         source={{ uri: item['urlToImage'] }}
                         style={styles.imgArticleVer} />
-                    <Text>{item['title']}</Text>
+                    <Text style={{ padding: 6, fontSize: configs.font.big, fontWeight: 'bold' }}>{item['title']}</Text>
                 </TouchableOpacity>
             )
         }
@@ -51,9 +49,9 @@ class Articles extends Component {
                     resizeMode='cover'
                     source={{ uri: item['urlToImage'] }}
                     style={styles.imgArticleHor} />
-                <Text>{moment(item['publishedAt']).toNow()}</Text>
-                <Text>{item['title']}</Text>
-                <Text>{item['description']}</Text>
+                <Text style={{ fontSize: configs.font.big, fontStyle: 'italic' }}>{moment(item['publishedAt']).toNow()}</Text>
+                <Text style={{ fontSize: configs.font.big, fontWeight: 'bold' }}>{item['title']}</Text>
+                <Text style={{ padding: 6 }}>{item['description']}</Text>
 
             </TouchableOpacity>
         )
@@ -114,7 +112,7 @@ class Articles extends Component {
     }
 
     _onPressItem = value => {
-
+        this.props.navigation.dispatch(navi.to({ name: 'DetailPost', params: { infoPost: value } }))
     }
 
     _onPressChangeSort = value => {
@@ -142,10 +140,5 @@ const mapStateToProps = (state, ownProps) => {
         language: state.app.setting.language,
     }
 }
-const mapDispatchToProps = (dispatch, ownProps) => {
-    return {
-        showSnackBar: (data) => dispatch(showSnackBar(data)),
-        showToast: (data) => dispatch(showToast(data))
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Articles)
+
+export default connect(mapStateToProps)(Articles)

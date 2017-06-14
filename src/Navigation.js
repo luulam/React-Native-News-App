@@ -5,6 +5,7 @@ import { StackNavigator } from 'react-navigation';
 import Home from './scenes/Home'
 import Splash from './scenes/Splash'
 import Articles from './scenes/Articles'
+import DetailPost from './scenes/DetailPost'
 
 ScenesApp = {
   Home: {
@@ -15,6 +16,9 @@ ScenesApp = {
   },
   Articles: {
     screen: Articles
+  },
+  DetailPost: {
+    screen: DetailPost
   }
 }
 

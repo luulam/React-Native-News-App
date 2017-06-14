@@ -8,6 +8,7 @@ import AppNavigator from './Navigation'
 const store = createStore(reducers, applyMiddleware(thunk))
 
 const App = () => {
+    console.disableYellowBox = true
     return (
         <Provider store={store}>
             <Setup>

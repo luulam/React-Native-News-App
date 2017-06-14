@@ -14,7 +14,7 @@ const IconApp = ({
 }) => {
     return (
         <Icon name={name}
-            color={hide ? colors.trans : color}
+            color={hide ? 'transparent' : color}
             size={size}
             onPress={onPress} />
     )
@@ -28,7 +28,7 @@ Icon.propTypes = {
 
 Icon.defaultProps = {
     size: configs.icons.medium,
-    color: colors.icon,
+    color: 'black',
     name: 'help'
 }
 
