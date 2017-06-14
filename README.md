@@ -4,7 +4,7 @@ Support me with a Follow
 [**facebook**](https://www.facebook.com/luu.bang.77)
 
 # News-React-Native  
-
+using react-native-start-kit (https://github.com/luulam/react-native-start-kit)
 [NewsApi.org](https://newsapi.org/) reader for iOS and Android, made with [React-Native](https://github.com/facebook/react-native).
 
 ##DEMO
@@ -17,6 +17,7 @@ Support me with a Follow
 ##Features/Components
 - Uses React Native 0.44.0
 - Navigation (https://reactnavigation.org/)
+- Lottie `animation` (https://github.com/airbnb/lottie-react-native)
 - Redux (http://redux.js.org/)
 - redux-thunk
 - Icon (https://github.com/oblador/react-native-vector-icons)
